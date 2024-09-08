@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload.gh.de</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <a href="/">Upload File</a>
+        </div>
+        <div class="navbar-right">
+            {% if username %}
+                <span>Willkommen, {{ username }}</span> | <a href="/logout">Logout</a>
+            {% else %}
+                <a href="/login">Login</a> | <a href="/register">Register</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="container">
+        <h2>Datei hochladen</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required><br>
+            <input type="text" name="description" placeholder="Beschreibung" required><br>
+            <input type="text" name="manual" placeholder="Bedienungsanleitung"><br>
+            <input type="text" name="file_password" placeholder="Passwort für die Datei"><br>
+            <input type="checkbox" onclick="showPassword()"> Passwort anzeigen<br>
+            <button type="submit">Hochladen</button>
+        </form>
+    </div>
+    <script>
+        function showPassword() {
+            var x = document.getElementsByName('file_password')[0];
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
