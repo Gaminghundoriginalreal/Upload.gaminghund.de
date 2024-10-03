@@ -1,44 +1,60 @@
-!DOCTYPE html
-html lang=de
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    titleUpload.gh.detitle
-    link rel=stylesheet href=staticstyle.css
-head
-body
-    div class=navbar
-        div class=navbar-left
-            a href=Upload Filea
-        div
-        div class=navbar-right
-            {% if username %}
-                spanWillkommen, {{ username }}span  a href=logoutLogouta
-            {% else %}
-                a href=loginLogina  a href=registerRegistera
-            {% endif %}
-        div
-    div
-    div class=container
-        h2Datei hochladenh2
-        form action=upload method=post enctype=multipartform-data
-            input type=file name=file requiredbr
-            input type=text name=description placeholder=Beschreibung requiredbr
-            input type=text name=manual placeholder=Bedienungsanleitungbr
-            input type=text name=file_password placeholder=Passwort für die Dateibr
-            input type=checkbox onclick=showPassword() Passwort anzeigenbr
-            button type=submitHochladenbutton
-        form
-    div
-    script
-        function showPassword() {
-            var x = document.getElementsByName('file_password')[0];
-            if (x.type === password) {
-                x.type = text;
-            } else {
-                x.type = password;
-            }
-        }
-    script
-body
-html
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload.gh.de - Code Ansicht</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>HTML-Code</h2>
+        <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="de"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Upload.gh.de&lt;/title&gt;
+            &lt;link rel="stylesheet" href="static/style.css"&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;div class="navbar"&gt;
+                &lt;div class="navbar-left"&gt;
+                    &lt;a href="#"&gt;Upload File&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="navbar-right"&gt;
+                    {% raw %}{% if username %}{% endraw %}
+                        &lt;span&gt;Willkommen, {{ username }}&lt;/span&gt; | &lt;a href="logout"&gt;Logout&lt;/a&gt;
+                    {% raw %}{% else %}{% endraw %}
+                        &lt;a href="login"&gt;Login&lt;/a&gt; | &lt;a href="register"&gt;Register&lt;/a&gt;
+                    {% raw %}{% endif %}{% endraw %}
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="container"&gt;
+                &lt;h2&gt;Datei hochladen&lt;/h2&gt;
+                &lt;form action="upload" method="post" enctype="multipart/form-data"&gt;
+                    &lt;input type="file" name="file" required&gt;&lt;br&gt;
+                    &lt;input type="text" name="description" placeholder="Beschreibung" required&gt;&lt;br&gt;
+                    &lt;input type="text" name="manual" placeholder="Bedienungsanleitung"&gt;&lt;br&gt;
+                    &lt;input type="text" name="file_password" placeholder="Passwort für die Datei"&gt;&lt;br&gt;
+                    &lt;input type="checkbox" onclick="showPassword()"&gt; Passwort anzeigen&lt;br&gt;
+                    &lt;button type="submit"&gt;Hochladen&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+            &lt;script&gt;
+                function showPassword() {
+                    var x = document.getElementsByName('file_password')[0];
+                    if (x.type === 'password') {
+                        x.type = 'text';
+                    } else {
+                        x.type = 'password';
+                    }
+                }
+            &lt;/script&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+        </pre>
+    </div>
+</body>
+</html>
